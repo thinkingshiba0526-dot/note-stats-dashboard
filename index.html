@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0044)file:///C:/Users/User/Downloads/index_3.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>note / stats</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="./index_files/chart.umd.min.js.ダウンロード"></script>
+<link href="./index_files/css2" rel="stylesheet">
 <style>
 :root {
   --bg:        #06080f;
@@ -539,7 +539,7 @@ header {
     <span class="logo-sub">stats</span>
   </div>
   <div class="header-right">
-    <div id="last-updated">—</div>
+    <div id="last-updated">updated 2026/08/23 15:31:30</div>
     <div class="header-badge">live</div>
   </div>
 </header>
@@ -551,8 +551,8 @@ header {
     <div class="kpi3-item">
       <div class="kpi3-label">Reach Power｜リーチ力</div>
       <div class="kpi3-row">
-        <span class="kpi3-val" id="k3-reach">—</span>
-        <span class="kpi3-arrow" id="k3-reach-arrow"></span>
+        <span class="kpi3-val" id="k3-reach">330.5</span>
+        <span class="kpi3-arrow flat" id="k3-reach-arrow">→</span>
       </div>
       <div class="kpi3-sub">PV ÷ 記事数</div>
     </div>
@@ -561,8 +561,8 @@ header {
     <div class="kpi3-item">
       <div class="kpi3-label">Action Power｜アクション力</div>
       <div class="kpi3-row">
-        <span class="kpi3-val" id="k3-action">—</span>
-        <span class="kpi3-arrow" id="k3-action-arrow"></span>
+        <span class="kpi3-val" id="k3-action">66.77</span>
+        <span class="kpi3-arrow flat" id="k3-action-arrow">→</span>
       </div>
       <div class="kpi3-sub">スキ ÷ 記事数</div>
     </div>
@@ -571,8 +571,8 @@ header {
     <div class="kpi3-item">
       <div class="kpi3-label">η スキ率</div>
       <div class="kpi3-row">
-        <span class="kpi3-val" id="k3-eta">—</span>
-        <span class="kpi3-arrow" id="k3-eta-arrow"></span>
+        <span class="kpi3-val" id="k3-eta">20.20%</span>
+        <span class="kpi3-arrow flat" id="k3-eta-arrow">→</span>
       </div>
       <div class="kpi3-sub">スキ ÷ PV × 100</div>
     </div>
@@ -580,7 +580,7 @@ header {
 
     <div class="status-memo-wrap">
       <div class="status-memo-label">📋 Status Memo｜自動診断</div>
-      <div id="status-memo-text">データ読み込み中...</div>
+      <div id="status-memo-text">😐 全指標横ばい。変化なし。新しいアクションを検討</div>
     </div>
   </div>
 
@@ -588,22 +588,22 @@ header {
   <div class="kpi-strip">
     <div class="kpi">
       <div class="kpi-label">Total Views</div>
-      <div class="kpi-value v" id="kpi-views">—</div>
-      <div class="kpi-diff" id="kpi-views-diff">前日比</div>
+      <div class="kpi-value v" id="kpi-views">45,605</div>
+      <div class="kpi-diff up" id="kpi-views-diff">▲ 0.2% 前日比</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Total Likes</div>
-      <div class="kpi-value l" id="kpi-likes">—</div>
-      <div class="kpi-diff" id="kpi-likes-diff">前日比</div>
+      <div class="kpi-value l" id="kpi-likes">9,214</div>
+      <div class="kpi-diff up" id="kpi-likes-diff">▲ 0.1% 前日比</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Articles</div>
-      <div class="kpi-value a" id="kpi-articles">—</div>
+      <div class="kpi-value a" id="kpi-articles">138</div>
       <div class="kpi-diff">公開記事数</div>
     </div>
     <div class="kpi">
       <div class="kpi-label">Followers</div>
-      <div class="kpi-value f" id="kpi-followers">—</div>
+      <div class="kpi-value f" id="kpi-followers">549</div>
       <div class="kpi-diff">フォロワー数</div>
     </div>
   </div>
@@ -620,7 +620,7 @@ header {
         </div>
         <span class="panel-badge">60D</span>
       </div>
-      <div class="chart-wrap"><canvas id="chart-daily"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-daily" width="859" height="420" style="display: block; box-sizing: border-box; height: 280px; width: 573px;"></canvas></div>
     </div>
 
     <!-- ビューランキング -->
@@ -632,7 +632,207 @@ header {
         </div>
         <span class="panel-badge" style="color:var(--cyan);border-color:var(--cyan-dim)">PV</span>
       </div>
-      <div class="ranking-list" id="ranking-views"><div class="loading">loading</div></div>
+      <div class="ranking-list" id="ranking-views">
+    <div class="rank-item">
+      <span class="rank-num gold">01</span>
+      <span class="rank-title" title="【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】"><a href="https://note.com/eager_thyme9842/n/n71e758b9ea71" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:100.0%"></div>
+        </div>
+        <span class="rank-val view-val">2,862</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num silver">02</span>
+      <span class="rank-title" title="【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨"><a href="https://note.com/eager_thyme9842/n/n916389ec2a3c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:31.5%"></div>
+        </div>
+        <span class="rank-val view-val">902</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num bronze">03</span>
+      <span class="rank-title" title="サイトマップ～赤柴亭へようこそ～"><a href="https://note.com/eager_thyme9842/n/n5d9a470fe1c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">サイトマップ～赤柴亭へようこそ～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:31.2%"></div>
+        </div>
+        <span class="rank-val view-val">894</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">04</span>
+      <span class="rank-title" title="柴犬漫画を集めてみたよ"><a href="https://note.com/eager_thyme9842/n/nc9aa96cda50c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬漫画を集めてみたよ</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:27.9%"></div>
+        </div>
+        <span class="rank-val view-val">798</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">05</span>
+      <span class="rank-title" title="夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】"><a href="https://note.com/eager_thyme9842/n/n9bd41fda32ae" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:27.1%"></div>
+        </div>
+        <span class="rank-val view-val">775</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">06</span>
+      <span class="rank-title" title="２０２５年に２回目の司法書士試験を受けてみた"><a href="https://note.com/eager_thyme9842/n/n5a5692527fe6" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">２０２５年に２回目の司法書士試験を受けてみた</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:24.1%"></div>
+        </div>
+        <span class="rank-val view-val">691</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">07</span>
+      <span class="rank-title" title="赤柴はちょっと紹介してみたいのです【note５カ月半】"><a href="https://note.com/eager_thyme9842/n/n36373cb2b514" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">赤柴はちょっと紹介してみたいのです【note５カ月半】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:22.8%"></div>
+        </div>
+        <span class="rank-val view-val">653</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">08</span>
+      <span class="rank-title" title="柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り"><a href="https://note.com/eager_thyme9842/n/n83482b6b7f3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:22.0%"></div>
+        </div>
+        <span class="rank-val view-val">629</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">09</span>
+      <span class="rank-title" title="るすばんの日の敗北"><a href="https://note.com/eager_thyme9842/n/nfb9e6adde298" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">るすばんの日の敗北</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:20.9%"></div>
+        </div>
+        <span class="rank-val view-val">597</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">10</span>
+      <span class="rank-title" title="noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】"><a href="https://note.com/eager_thyme9842/n/nfb759b0c7b2d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:20.8%"></div>
+        </div>
+        <span class="rank-val view-val">594</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">11</span>
+      <span class="rank-title" title="「かわいい」だけじゃない。動画生成AIを比べて分かった、私に合うモデル【第2回スキ動画コンテスト】"><a href="https://note.com/eager_thyme9842/n/n07972023aba8" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">「かわいい」だけじゃない。動画生成AIを比べて分かった、私に合うモデル【第2回スキ動画コンテスト】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:20.3%"></div>
+        </div>
+        <span class="rank-val view-val">582</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">12</span>
+      <span class="rank-title" title="ZINEを「ザイン」だと思っていた話"><a href="https://note.com/eager_thyme9842/n/n3ba52b6a3fc2" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">ZINEを「ザイン」だと思っていた話</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:20.2%"></div>
+        </div>
+        <span class="rank-val view-val">577</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">13</span>
+      <span class="rank-title" title="うそでしょ、こんなところにも沼があったなんて！～赤柴、ミニゲーム作りに挑戦中～"><a href="https://note.com/eager_thyme9842/n/nbf24e0c9b222" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">うそでしょ、こんなところにも沼があったなんて！～赤柴、ミニゲーム作りに挑戦中～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:19.7%"></div>
+        </div>
+        <span class="rank-val view-val">563</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">14</span>
+      <span class="rank-title" title="家族になった日【#ちび創作大賞応募作】【動画部門】"><a href="https://note.com/eager_thyme9842/n/n23bc7c657501" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">家族になった日【#ちび創作大賞応募作】【動画部門】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:19.6%"></div>
+        </div>
+        <span class="rank-val view-val">561</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">15</span>
+      <span class="rank-title" title="わたしの世界観ってなんだろう｜AIたちと対話してみた【コンテスト振り返り】"><a href="https://note.com/eager_thyme9842/n/n85be1c5e0d3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">わたしの世界観ってなんだろう｜AIたちと対話してみた【コンテスト振り返り】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:19.6%"></div>
+        </div>
+        <span class="rank-val view-val">560</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">16</span>
+      <span class="rank-title" title="やらないことを決めるのって難しい【kenさんのプロンプトで遊んでみました】"><a href="https://note.com/eager_thyme9842/n/ndc258d32737e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">やらないことを決めるのって難しい【kenさんのプロンプトで遊んでみました】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:19.5%"></div>
+        </div>
+        <span class="rank-val view-val">558</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">17</span>
+      <span class="rank-title" title="【ポントレ】ポン出しビルダーで画像生成を練習してみた・その１"><a href="https://note.com/eager_thyme9842/n/n4928a416c3c1" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【ポントレ】ポン出しビルダーで画像生成を練習してみた・その１</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:18.5%"></div>
+        </div>
+        <span class="rank-val view-val">530</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">18</span>
+      <span class="rank-title" title="気象予報士の憂鬱【＃毎週ショートショートnote】"><a href="https://note.com/eager_thyme9842/n/nf464db3c7a54" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">気象予報士の憂鬱【＃毎週ショートショートnote】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:18.4%"></div>
+        </div>
+        <span class="rank-val view-val">528</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">19</span>
+      <span class="rank-title" title="半笑いで気絶する子犬まで出てきた。AI動画NG集を全部見せます【第２回スキ動画コンテストNG集】"><a href="https://note.com/eager_thyme9842/n/n8d76dbb391c7" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">半笑いで気絶する子犬まで出てきた。AI動画NG集を全部見せます【第２回スキ動画コンテストNG集】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:18.1%"></div>
+        </div>
+        <span class="rank-val view-val">517</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">20</span>
+      <span class="rank-title" title="ティッシュ字涙腺短歌～亡き愛犬に寄せて～"><a href="https://note.com/eager_thyme9842/n/nf7343a999fdd" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">ティッシュ字涙腺短歌～亡き愛犬に寄せて～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill view-bar" style="width:18.0%"></div>
+        </div>
+        <span class="rank-val view-val">516</span>
+      </div>
+    </div></div>
     </div>
 
     <!-- フォロワー推移 -->
@@ -644,7 +844,7 @@ header {
         </div>
         <span class="panel-badge">ALL</span>
       </div>
-      <div class="chart-wrap"><canvas id="chart-followers"></canvas></div>
+      <div class="chart-wrap"><canvas id="chart-followers" width="859" height="420" style="display: block; box-sizing: border-box; height: 280px; width: 573px;"></canvas></div>
     </div>
 
     <!-- スキランキング -->
@@ -656,7 +856,207 @@ header {
         </div>
         <span class="panel-badge" style="color:var(--pink);border-color:var(--pink-dim)">LIKE</span>
       </div>
-      <div class="ranking-list" id="ranking-likes"><div class="loading">loading</div></div>
+      <div class="ranking-list" id="ranking-likes">
+    <div class="rank-item">
+      <span class="rank-num gold">01</span>
+      <span class="rank-title" title="サイトマップ～赤柴亭へようこそ～"><a href="https://note.com/eager_thyme9842/n/n5d9a470fe1c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">サイトマップ～赤柴亭へようこそ～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:100.0%"></div>
+        </div>
+        <span class="rank-val like-val">335</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num silver">02</span>
+      <span class="rank-title" title="赤柴、開きなおる。【note３カ月に思うこと】"><a href="https://note.com/eager_thyme9842/n/n57433e1741c8" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">赤柴、開きなおる。【note３カ月に思うこと】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:57.0%"></div>
+        </div>
+        <span class="rank-val like-val">191</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num bronze">03</span>
+      <span class="rank-title" title="柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り"><a href="https://note.com/eager_thyme9842/n/n83482b6b7f3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:55.8%"></div>
+        </div>
+        <span class="rank-val like-val">187</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">04</span>
+      <span class="rank-title" title="【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨"><a href="https://note.com/eager_thyme9842/n/n916389ec2a3c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:55.5%"></div>
+        </div>
+        <span class="rank-val like-val">186</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">05</span>
+      <span class="rank-title" title="警戒心は消えていない。でも、好奇心が上回った――椿みきこさんの原点を発掘【⛏️初期記事発掘レイド⛑️その２】"><a href="https://note.com/eager_thyme9842/n/n5ffa80e71629" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">警戒心は消えていない。でも、好奇心が上回った――椿みきこさんの原点を発掘【⛏️初期記事発掘レイド⛑️その２】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:47.5%"></div>
+        </div>
+        <span class="rank-val like-val">159</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">06</span>
+      <span class="rank-title" title="SNSが苦手な自分がnoteを始めてみて思ったこと"><a href="https://note.com/eager_thyme9842/n/nd82c3b8f9396" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">SNSが苦手な自分がnoteを始めてみて思ったこと</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:44.2%"></div>
+        </div>
+        <span class="rank-val like-val">148</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">07</span>
+      <span class="rank-title" title="神社の空気は澄んでいる"><a href="https://note.com/eager_thyme9842/n/n68d75478d890" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">神社の空気は澄んでいる</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:43.3%"></div>
+        </div>
+        <span class="rank-val like-val">145</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">08</span>
+      <span class="rank-title" title="読みたいnoteが多すぎる問題と自分の方向性に迷うことについて【note２カ月の感想】"><a href="https://note.com/eager_thyme9842/n/nb0038ae8da62" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">読みたいnoteが多すぎる問題と自分の方向性に迷うことについて【note２カ月の感想】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:39.4%"></div>
+        </div>
+        <span class="rank-val like-val">132</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">09</span>
+      <span class="rank-title" title="ティッシュ字涙腺短歌～亡き愛犬に寄せて～"><a href="https://note.com/eager_thyme9842/n/nf7343a999fdd" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">ティッシュ字涙腺短歌～亡き愛犬に寄せて～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:37.3%"></div>
+        </div>
+        <span class="rank-val like-val">125</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">10</span>
+      <span class="rank-title" title="次世代踏切オーディション【＃毎週ショートショートnote】"><a href="https://note.com/eager_thyme9842/n/n1f2d51498157" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">次世代踏切オーディション【＃毎週ショートショートnote】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:37.3%"></div>
+        </div>
+        <span class="rank-val like-val">125</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">11</span>
+      <span class="rank-title" title="家族になった日【#ちび創作大賞応募作】【動画部門】"><a href="https://note.com/eager_thyme9842/n/n23bc7c657501" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">家族になった日【#ちび創作大賞応募作】【動画部門】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:35.5%"></div>
+        </div>
+        <span class="rank-val like-val">119</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">12</span>
+      <span class="rank-title" title="るすばんの日の敗北"><a href="https://note.com/eager_thyme9842/n/nfb9e6adde298" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">るすばんの日の敗北</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:34.9%"></div>
+        </div>
+        <span class="rank-val like-val">117</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">13</span>
+      <span class="rank-title" title="noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】"><a href="https://note.com/eager_thyme9842/n/nfb759b0c7b2d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:34.9%"></div>
+        </div>
+        <span class="rank-val like-val">117</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">14</span>
+      <span class="rank-title" title="半導体大仏師【＃毎週ショートショートnote】"><a href="https://note.com/eager_thyme9842/n/n98a058d2a6fc" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">半導体大仏師【＃毎週ショートショートnote】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:34.9%"></div>
+        </div>
+        <span class="rank-val like-val">117</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">15</span>
+      <span class="rank-title" title="そこは沼の入り口だった〜赤柴のPolloAI奮闘記・前編～【＃PolloAI×しろねんコンテスト】"><a href="https://note.com/eager_thyme9842/n/n09767c8ba6df" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">そこは沼の入り口だった〜赤柴のPolloAI奮闘記・前編～【＃PolloAI×しろねんコンテスト】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:34.6%"></div>
+        </div>
+        <span class="rank-val like-val">116</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">16</span>
+      <span class="rank-title" title="沼にもう一歩入ってみた【#noteスキ動画コンテスト】"><a href="https://note.com/eager_thyme9842/n/n21c4a33b59f5" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">沼にもう一歩入ってみた【#noteスキ動画コンテスト】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:34.0%"></div>
+        </div>
+        <span class="rank-val like-val">114</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">17</span>
+      <span class="rank-title" title="その日々を短歌に詠んだ祖母のいて～いま会いたい人～【＃66週ライラン 9/66】"><a href="https://note.com/eager_thyme9842/n/n855d6fd305f6" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">その日々を短歌に詠んだ祖母のいて～いま会いたい人～【＃66週ライラン 9/66】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:33.4%"></div>
+        </div>
+        <span class="rank-val like-val">112</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">18</span>
+      <span class="rank-title" title="夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】"><a href="https://note.com/eager_thyme9842/n/n9bd41fda32ae" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:33.1%"></div>
+        </div>
+        <span class="rank-val like-val">111</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">19</span>
+      <span class="rank-title" title="うそでしょ、こんなところにも沼があったなんて！～赤柴、ミニゲーム作りに挑戦中～"><a href="https://note.com/eager_thyme9842/n/nbf24e0c9b222" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">うそでしょ、こんなところにも沼があったなんて！～赤柴、ミニゲーム作りに挑戦中～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:32.2%"></div>
+        </div>
+        <span class="rank-val like-val">108</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">20</span>
+      <span class="rank-title" title="未練を食べるバク【＃毎週ショートショートnote】"><a href="https://note.com/eager_thyme9842/n/na10f7f582986" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">未練を食べるバク【＃毎週ショートショートnote】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar">
+          <div class="rank-bar-fill like-bar" style="width:31.6%"></div>
+        </div>
+        <span class="rank-val like-val">106</span>
+      </div>
+    </div></div>
     </div>
 
     <!-- ワースト10 -->
@@ -672,11 +1072,171 @@ header {
       <div class="worst-grid" style="margin-bottom:28px">
         <div>
           <div class="worst-section-title">スキ率 ワースト（読まれてるのに刺さってない）</div>
-          <div class="ranking-list" id="ranking-worst-eta"><div class="loading">loading</div></div>
+          <div class="ranking-list" id="ranking-worst-eta">
+    <div class="rank-item">
+      <span class="rank-num">01</span>
+      <span class="rank-title" title="【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】"><a href="https://note.com/eager_thyme9842/n/n71e758b9ea71" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:12.1%"></div></div>
+        <span class="rank-val worst-val">1.0%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">02</span>
+      <span class="rank-title" title="試験勉強の相棒は、ZEBRAのサラサクリップ0.4ジェルボールペン"><a href="https://note.com/eager_thyme9842/n/n0def0dce1a79" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">試験勉強の相棒は、ZEBRAのサラサクリップ0.4ジェルボールペン</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:39.9%"></div></div>
+        <span class="rank-val worst-val">3.2%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">03</span>
+      <span class="rank-title" title="小吉のおみくじを読み込んでみる。かげくらき/月の光をたよりにて/しずかにたどれ/のべのほそみち"><a href="https://note.com/eager_thyme9842/n/n198fde45a7cb" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">小吉のおみくじを読み込んでみる。かげくらき/月の光をたよりにて/しずかにたどれ/のべのほそみち</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:62.7%"></div></div>
+        <span class="rank-val worst-val">5.1%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">04</span>
+      <span class="rank-title" title="２０２４年に初めて司法書士試験を受けてみた"><a href="https://note.com/eager_thyme9842/n/nde66740a50d1" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">２０２４年に初めて司法書士試験を受けてみた</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:66.2%"></div></div>
+        <span class="rank-val worst-val">5.4%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">05</span>
+      <span class="rank-title" title="柴犬漫画を集めてみたよ"><a href="https://note.com/eager_thyme9842/n/nc9aa96cda50c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬漫画を集めてみたよ</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:68.0%"></div></div>
+        <span class="rank-val worst-val">5.5%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">06</span>
+      <span class="rank-title" title="２０２５年に２回目の司法書士試験を受けてみた"><a href="https://note.com/eager_thyme9842/n/n5a5692527fe6" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">２０２５年に２回目の司法書士試験を受けてみた</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:73.2%"></div></div>
+        <span class="rank-val worst-val">5.9%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">07</span>
+      <span class="rank-title" title="柴犬飼い主の愛用品【冬】北欧風ミトン"><a href="https://note.com/eager_thyme9842/n/ndf3fce3cde3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬飼い主の愛用品【冬】北欧風ミトン</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:87.5%"></div></div>
+        <span class="rank-val worst-val">7.1%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">08</span>
+      <span class="rank-title" title="柴犬のご飯を作るついでに飼い主はカレーの献立"><a href="https://note.com/eager_thyme9842/n/ndbe74d9f35f7" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬のご飯を作るついでに飼い主はカレーの献立</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:88.1%"></div></div>
+        <span class="rank-val worst-val">7.1%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">09</span>
+      <span class="rank-title" title="呪文にしか見えなかった問題文（司法書士試験）"><a href="https://note.com/eager_thyme9842/n/nf112bff58258" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">呪文にしか見えなかった問題文（司法書士試験）</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:88.3%"></div></div>
+        <span class="rank-val worst-val">7.2%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">10</span>
+      <span class="rank-title" title="柴犬の飼い主愛用品【オールシーズン】手帳には日常が詰まってる"><a href="https://note.com/eager_thyme9842/n/n37991ce63586" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬の飼い主愛用品【オールシーズン】手帳には日常が詰まってる</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:100.0%"></div></div>
+        <span class="rank-val worst-val">8.1%</span>
+      </div>
+    </div></div>
         </div>
         <div>
           <div class="worst-section-title">View数 ワースト（埋もれている記事）</div>
-          <div class="ranking-list" id="ranking-worst-views"><div class="loading">loading</div></div>
+          <div class="ranking-list" id="ranking-worst-views">
+    <div class="rank-item">
+      <span class="rank-num">01</span>
+      <span class="rank-title" title="柴犬のご飯を作るついでに飼い主もピーマン肉詰めの献立"><a href="https://note.com/eager_thyme9842/n/naea6e131360d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬のご飯を作るついでに飼い主もピーマン肉詰めの献立</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:64.4%"></div></div>
+        <span class="rank-val worst-val">58</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">02</span>
+      <span class="rank-title" title="柴犬飼い主の愛用品【冬】指先あかぎれ保護バン"><a href="https://note.com/eager_thyme9842/n/nf6238270cf88" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬飼い主の愛用品【冬】指先あかぎれ保護バン</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:65.6%"></div></div>
+        <span class="rank-val worst-val">59</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">03</span>
+      <span class="rank-title" title="柴犬のご飯を作るついでに飼い主はハンバーグの献立"><a href="https://note.com/eager_thyme9842/n/n2ca3aae5aa67" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬のご飯を作るついでに飼い主はハンバーグの献立</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:77.8%"></div></div>
+        <span class="rank-val worst-val">70</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">04</span>
+      <span class="rank-title" title="柴犬短歌（体重測定とお薬）"><a href="https://note.com/eager_thyme9842/n/n64e5d64ab23d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬短歌（体重測定とお薬）</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:82.2%"></div></div>
+        <span class="rank-val worst-val">74</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">05</span>
+      <span class="rank-title" title="【俳句】犬の尾について歩けば冬銀河"><a href="https://note.com/eager_thyme9842/n/n5b09241ce63a" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【俳句】犬の尾について歩けば冬銀河</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:84.4%"></div></div>
+        <span class="rank-val worst-val">76</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">06</span>
+      <span class="rank-title" title="柴犬にも使い回せるおせち料理と、なんちゃって伊達巻"><a href="https://note.com/eager_thyme9842/n/n7fc06c5228c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬にも使い回せるおせち料理と、なんちゃって伊達巻</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:94.4%"></div></div>
+        <span class="rank-val worst-val">85</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">07</span>
+      <span class="rank-title" title="こたつから眺める窓にクリスタル"><a href="https://note.com/eager_thyme9842/n/nad30ab9e2d5f" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">こたつから眺める窓にクリスタル</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:95.6%"></div></div>
+        <span class="rank-val worst-val">86</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">08</span>
+      <span class="rank-title" title="柴犬のご飯を作るついでに飼い主はチキンクリーム煮の献立"><a href="https://note.com/eager_thyme9842/n/nc82a53432e11" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬のご飯を作るついでに飼い主はチキンクリーム煮の献立</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:98.9%"></div></div>
+        <span class="rank-val worst-val">89</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">09</span>
+      <span class="rank-title" title="新年短歌大喜利に参加してみました"><a href="https://note.com/eager_thyme9842/n/n36f6c81f7cbc" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">新年短歌大喜利に参加してみました</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:100.0%"></div></div>
+        <span class="rank-val worst-val">90</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num">10</span>
+      <span class="rank-title" title="柴犬のご飯を作るついでに飼い主はキムチ鍋の献立"><a href="https://note.com/eager_thyme9842/n/n1cce614197b1" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬のご飯を作るついでに飼い主はキムチ鍋の献立</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:100.0%"></div></div>
+        <span class="rank-val worst-val">90</span>
+      </div>
+    </div></div>
         </div>
       </div>
 
@@ -689,11 +1249,171 @@ header {
       <div class="worst-grid">
         <div>
           <div class="best-section-title">スキ率 ベスト（読まれて、かつ刺さった）</div>
-          <div class="ranking-list" id="ranking-best-eta"><div class="loading">loading</div></div>
+          <div class="ranking-list" id="ranking-best-eta">
+    <div class="rank-item">
+      <span class="rank-num gold">01</span>
+      <span class="rank-title" title="読みたいnoteが多すぎる問題と自分の方向性に迷うことについて【note２カ月の感想】"><a href="https://note.com/eager_thyme9842/n/nb0038ae8da62" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">読みたいnoteが多すぎる問題と自分の方向性に迷うことについて【note２カ月の感想】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:100.0%"></div></div>
+        <span class="rank-val best-val">45.5%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num silver">02</span>
+      <span class="rank-title" title="遅咲きの桜と柴犬　＃花の下短歌大喜利"><a href="https://note.com/eager_thyme9842/n/n059fe94c9838" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">遅咲きの桜と柴犬　＃花の下短歌大喜利</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:99.6%"></div></div>
+        <span class="rank-val best-val">45.3%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num bronze">03</span>
+      <span class="rank-title" title="赤柴、開きなおる。【note３カ月に思うこと】"><a href="https://note.com/eager_thyme9842/n/n57433e1741c8" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">赤柴、開きなおる。【note３カ月に思うこと】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:93.0%"></div></div>
+        <span class="rank-val best-val">42.4%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">04</span>
+      <span class="rank-title" title="【俳句】犬連れて氷踏む朝冴え返る"><a href="https://note.com/eager_thyme9842/n/n8d0c9622780e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【俳句】犬連れて氷踏む朝冴え返る</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:89.7%"></div></div>
+        <span class="rank-val best-val">40.8%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">05</span>
+      <span class="rank-title" title="日用品について調べるのが好きなんです【わくわくする瞬間】"><a href="https://note.com/eager_thyme9842/n/nf2495ea46be1" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">日用品について調べるのが好きなんです【わくわくする瞬間】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:85.8%"></div></div>
+        <span class="rank-val best-val">39.1%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">06</span>
+      <span class="rank-title" title="柴犬短歌（体重測定とお薬）"><a href="https://note.com/eager_thyme9842/n/n64e5d64ab23d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬短歌（体重測定とお薬）</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:83.1%"></div></div>
+        <span class="rank-val best-val">37.8%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">07</span>
+      <span class="rank-title" title="サイトマップ～赤柴亭へようこそ～"><a href="https://note.com/eager_thyme9842/n/n5d9a470fe1c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">サイトマップ～赤柴亭へようこそ～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:82.3%"></div></div>
+        <span class="rank-val best-val">37.5%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">08</span>
+      <span class="rank-title" title="【俳句】雪とけて柴の寝姿長くなり　　＃雪とけて俳句大喜利に参加しています"><a href="https://note.com/eager_thyme9842/n/n663c112c6a4d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【俳句】雪とけて柴の寝姿長くなり　　＃雪とけて俳句大喜利に参加しています</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:81.0%"></div></div>
+        <span class="rank-val best-val">36.9%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">09</span>
+      <span class="rank-title" title="警戒心は消えていない。でも、好奇心が上回った――椿みきこさんの原点を発掘【⛏️初期記事発掘レイド⛑️その２】"><a href="https://note.com/eager_thyme9842/n/n5ffa80e71629" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">警戒心は消えていない。でも、好奇心が上回った――椿みきこさんの原点を発掘【⛏️初期記事発掘レイド⛑️その２】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:79.4%"></div></div>
+        <span class="rank-val best-val">36.1%</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">10</span>
+      <span class="rank-title" title="【短歌】冬と春のあいだに　耳と肩のあいだをなるべく離して"><a href="https://note.com/eager_thyme9842/n/nb98649990437" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【短歌】冬と春のあいだに　耳と肩のあいだをなるべく離して</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:78.5%"></div></div>
+        <span class="rank-val best-val">35.7%</span>
+      </div>
+    </div></div>
         </div>
         <div>
           <div class="best-section-title">View数 ベスト（最も読まれた記事）</div>
-          <div class="ranking-list" id="ranking-best-views"><div class="loading">loading</div></div>
+          <div class="ranking-list" id="ranking-best-views">
+    <div class="rank-item">
+      <span class="rank-num gold">01</span>
+      <span class="rank-title" title="【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】"><a href="https://note.com/eager_thyme9842/n/n71e758b9ea71" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:100.0%"></div></div>
+        <span class="rank-val best-val">2,862</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num silver">02</span>
+      <span class="rank-title" title="【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨"><a href="https://note.com/eager_thyme9842/n/n916389ec2a3c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【無料】りんご飴キャッチゲームやってるよ～🎶【#じまこちゃ夏祭り】イベント参加しなくても遊べます✨</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:31.5%"></div></div>
+        <span class="rank-val best-val">902</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num bronze">03</span>
+      <span class="rank-title" title="サイトマップ～赤柴亭へようこそ～"><a href="https://note.com/eager_thyme9842/n/n5d9a470fe1c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">サイトマップ～赤柴亭へようこそ～</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:31.2%"></div></div>
+        <span class="rank-val best-val">894</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">04</span>
+      <span class="rank-title" title="柴犬漫画を集めてみたよ"><a href="https://note.com/eager_thyme9842/n/nc9aa96cda50c" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬漫画を集めてみたよ</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:27.9%"></div></div>
+        <span class="rank-val best-val">798</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">05</span>
+      <span class="rank-title" title="夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】"><a href="https://note.com/eager_thyme9842/n/n9bd41fda32ae" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:27.1%"></div></div>
+        <span class="rank-val best-val">775</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">06</span>
+      <span class="rank-title" title="２０２５年に２回目の司法書士試験を受けてみた"><a href="https://note.com/eager_thyme9842/n/n5a5692527fe6" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">２０２５年に２回目の司法書士試験を受けてみた</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:24.1%"></div></div>
+        <span class="rank-val best-val">691</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">07</span>
+      <span class="rank-title" title="赤柴はちょっと紹介してみたいのです【note５カ月半】"><a href="https://note.com/eager_thyme9842/n/n36373cb2b514" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">赤柴はちょっと紹介してみたいのです【note５カ月半】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:22.8%"></div></div>
+        <span class="rank-val best-val">653</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">08</span>
+      <span class="rank-title" title="柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り"><a href="https://note.com/eager_thyme9842/n/n83482b6b7f3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:22.0%"></div></div>
+        <span class="rank-val best-val">629</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">09</span>
+      <span class="rank-title" title="るすばんの日の敗北"><a href="https://note.com/eager_thyme9842/n/nfb9e6adde298" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">るすばんの日の敗北</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:20.9%"></div></div>
+        <span class="rank-val best-val">597</span>
+      </div>
+    </div>
+    <div class="rank-item">
+      <span class="rank-num ">10</span>
+      <span class="rank-title" title="noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】"><a href="https://note.com/eager_thyme9842/n/nfb759b0c7b2d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】</a></span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:20.8%"></div></div>
+        <span class="rank-val best-val">594</span>
+      </div>
+    </div></div>
         </div>
       </div>
     </div>
@@ -707,7 +1427,7 @@ header {
         </div>
         <span class="panel-badge">SCATTER</span>
       </div>
-      <div class="chart-wrap tall"><canvas id="chart-quad"></canvas></div>
+      <div class="chart-wrap tall"><canvas id="chart-quad" width="1818" height="540" style="display: block; box-sizing: border-box; height: 360px; width: 1212px;"></canvas></div>
     </div>
 
     <!-- 資産記事 -->
@@ -730,9 +1450,7 @@ header {
               <th>推移</th>
             </tr>
           </thead>
-          <tbody id="asset-body">
-            <tr><td colspan="5" class="loading">スキャン中</td></tr>
-          </tbody>
+          <tbody id="asset-body"><tr><td colspan="5" style="color:var(--text3);padding:20px">No asset data</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -758,8 +1476,146 @@ header {
             </tr>
           </thead>
           <tbody id="trend-body">
-            <tr><td colspan="11" class="loading">読み込み中</td></tr>
-          </tbody>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n07972023aba8" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">「かわいい」だけじゃない。動画生成AIを比べて分かった、私に合うモデル【第2回スキ動画コンテスト】</a></td>
+        <td class="num-right">582</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">22</td>
+        <td class="num-right" style="text-align:right">12</td><td class="num-right" style="text-align:right">5</td><td class="num-right" style="text-align:right">5</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n9bd41fda32ae" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">夏といえばこれ！スキ動画コンテスト・夏の陣【応募記事】</a></td>
+        <td class="num-right">775</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">19</td>
+        <td class="num-right" style="text-align:right">12</td><td class="num-right" style="text-align:right">5</td><td class="num-right" style="text-align:right">2</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n5d9a470fe1c0" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">サイトマップ～赤柴亭へようこそ～</a></td>
+        <td class="num-right">894</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">26</td>
+        <td class="num-right" style="text-align:right">10</td><td class="num-right" style="text-align:right">10</td><td class="num-right" style="text-align:right">6</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n83482b6b7f3e" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">柴犬から人間へ。note8カ月で迎えた自己表現のアップデート。| 画像生成AI | アイコン変更 | noteのつづけ方 | 自己分析  | note初心者 | 50代 | 心境の変化 | 試行錯誤 | 感謝 | ちびキャラ | アバター | 振り返り</a></td>
+        <td class="num-right">629</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">198</td>
+        <td class="num-right" style="text-align:right">8</td><td class="num-right" style="text-align:right">67</td><td class="num-right" style="text-align:right">123</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n71e758b9ea71" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【Amazon Vine】3年間で900件レビューしたゴールド会員の記録 | 生成AI | やり方 | コツ |おすすめ | 主婦 | 副業 | 失敗談 | 不安 | 解決【レビューのご依頼はこちらへ】</a></td>
+        <td class="num-right">2,862</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">28</td>
+        <td class="num-right" style="text-align:right">8</td><td class="num-right" style="text-align:right">9</td><td class="num-right" style="text-align:right">11</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/nfb9e6adde298" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">るすばんの日の敗北</a></td>
+        <td class="num-right">597</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">24</td>
+        <td class="num-right" style="text-align:right">4</td><td class="num-right" style="text-align:right">8</td><td class="num-right" style="text-align:right">12</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n3ba52b6a3fc2" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">ZINEを「ザイン」だと思っていた話</a></td>
+        <td class="num-right">577</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">8</td>
+        <td class="num-right" style="text-align:right">4</td><td class="num-right" style="text-align:right">4</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n4bab6120067a" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【クリエイター図鑑】に参加してみたら、忘れ物を届ける犬が現れました</a></td>
+        <td class="num-right">429</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">4</td>
+        <td class="num-right" style="text-align:right">4</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/nfb759b0c7b2d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">noteの区切り線、毎回どうする？ChatGPTで「吹き出し区切り線」を作ってみた【拡散希望】</a></td>
+        <td class="num-right">594</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">13</td>
+        <td class="num-right" style="text-align:right">2</td><td class="num-right" style="text-align:right">8</td><td class="num-right" style="text-align:right">3</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n23bc7c657501" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">家族になった日【#ちび創作大賞応募作】【動画部門】</a></td>
+        <td class="num-right">561</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">2</td>
+        <td class="num-right" style="text-align:right">2</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n8b99f230ba59" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">MS365の一方的な値上げを回避するダウングレードをGeminiに教えてもらったことについて</a></td>
+        <td class="num-right">201</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">2</td>
+        <td class="num-right" style="text-align:right">2</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n5ffa80e71629" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">警戒心は消えていない。でも、好奇心が上回った――椿みきこさんの原点を発掘【⛏️初期記事発掘レイド⛑️その２】</a></td>
+        <td class="num-right">440</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">12</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-right" style="text-align:right">4</td><td class="num-right" style="text-align:right">7</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n5a5692527fe6" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">２０２５年に２回目の司法書士試験を受けてみた</a></td>
+        <td class="num-right">691</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">3</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-right" style="text-align:right">2</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/nbcdec2ae5ac9" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">⛏️初期記事発掘レイド⛑️その１・ナオユキさん～秘密基地の少年～</a></td>
+        <td class="num-right">464</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">3</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-right" style="text-align:right">2</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n09767c8ba6df" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">そこは沼の入り口だった〜赤柴のPolloAI奮闘記・前編～【＃PolloAI×しろねんコンテスト】</a></td>
+        <td class="num-right">499</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">2</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n6670fd86573d" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">ナオユキさんに依頼したサイトマップが予想を超えて素敵すぎた【漫画ソムリエ羊ケ丘・予想クイズ答え合わせ🎓️】</a></td>
+        <td class="num-right">366</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">2</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n11b25f272da1" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">【画像生成練習】ポン出しビルダー練習帖・その２【ポントレ】</a></td>
+        <td class="num-right">363</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">1</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n198fde45a7cb" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">小吉のおみくじを読み込んでみる。かげくらき/月の光をたよりにて/しずかにたどれ/のべのほそみち</a></td>
+        <td class="num-right">177</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">1</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n21c4a33b59f5" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">沼にもう一歩入ってみた【#noteスキ動画コンテスト】</a></td>
+        <td class="num-right">505</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">1</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr>
+      <tr>
+        <td class="sticky-1"><span class="status-badge badge-hot">🔥 急上昇</span></td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)"><a href="https://note.com/eager_thyme9842/n/n4606ed645475" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;" onmouseover="this.style.textDecoration=&#39;underline&#39;" onmouseout="this.style.textDecoration=&#39;none&#39;">宴の後～わたしの思い出屋台～【#じまこちゃ夏祭り後夜祭】</a></td>
+        <td class="num-right">440</td>
+        <td class="num-accent" style="text-align:center;font-weight:700">1</td>
+        <td class="num-right" style="text-align:right">1</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td><td class="num-muted" style="text-align:right">—</td>
+      </tr></tbody>
         </table>
       </div>
     </div>
@@ -788,11 +1644,27 @@ const CONFIG = {
   //    例: ['下書き記事', 'テスト投稿']
   excludeTitles: [],
 
+  // ④ あなたの note ユーザー名（記事タイトルのリンク先を組み立てるのに使います）
+  //    note のプロフィールURL https://note.com/xxxxx の xxxxx の部分
+  noteUsername: 'eager_thyme9842',
+
 };
 
 // ─── 以下は変更不要 ───────────────────────────────────────────
 const EXCLUDED_TITLES = CONFIG.excludeTitles;
 const BASE = `https://raw.githubusercontent.com/${CONFIG.repo}/main/${CONFIG.dataPath}/`;
+
+function noteUrl(key) {
+  if (!key) return '';
+  return `https://note.com/${CONFIG.noteUsername}/n/${key}`;
+}
+
+function titleLinkHTML(key, title, extraStyle = '') {
+  const url = noteUrl(key);
+  const safeTitle = title || '';
+  if (!url) return safeTitle;
+  return `<a href="${url}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;${extraStyle}" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${safeTitle}</a>`;
+}
 
 async function fetchCSV(name) {
   const res = await fetch(BASE + name + '.csv?t=' + Date.now());
@@ -926,7 +1798,7 @@ function buildRanking(containerId, rows, valueKey, barClass, valClass) {
   document.getElementById(containerId).innerHTML = sorted.map((r, i) => `
     <div class="rank-item">
       <span class="rank-num ${medal(i)}">${String(i + 1).padStart(2, '0')}</span>
-      <span class="rank-title" title="${r.title}">${r.title}</span>
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
       <div class="rank-right">
         <div class="rank-bar">
           <div class="rank-bar-fill ${barClass}" style="width:${(Number(r[valueKey]) / max * 100).toFixed(1)}%"></div>
@@ -1026,7 +1898,7 @@ function buildAssetTable(rows) {
     return `
       <tr>
         <td class="num-muted" style="text-align:center">${i + 1}</td>
-        <td style="max-width:320px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)">${r.title}</td>
+        <td style="max-width:320px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)">${titleLinkHTML(r.key, r.title)}</td>
         <td>
           <div class="bar-cell-wrap">
             <div class="inline-bar"><div class="inline-bar-fill" style="width:${barW}%"></div></div>
@@ -1058,7 +1930,7 @@ function buildTrendDetailed(rows) {
     return `
       <tr>
         <td class="sticky-1"><span class="status-badge ${badgeClass}">${state}</span></td>
-        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)">${r['title']}</td>
+        <td class="sticky-2" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text2)">${titleLinkHTML(r.key, r['title'])}</td>
         <td class="num-right">${Number(r['累計PV']).toLocaleString()}</td>
         <td class="num-accent" style="text-align:center;font-weight:700">${r['トレンドスコア']}</td>
         ${dailyCells}
@@ -1156,7 +2028,7 @@ function buildWorstRanking(rows) {
   document.getElementById('ranking-worst-eta').innerHTML = etaWorst.map((r, i) => `
     <div class="rank-item">
       <span class="rank-num">${String(i + 1).padStart(2, '0')}</span>
-      <span class="rank-title" title="${r.title}">${r.title}</span>
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
       <div class="rank-right">
         <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:${(r.eta / etaMax * 100).toFixed(1)}%"></div></div>
         <span class="rank-val worst-val">${r.eta.toFixed(1)}%</span>
@@ -1170,7 +2042,7 @@ function buildWorstRanking(rows) {
   document.getElementById('ranking-worst-views').innerHTML = viewWorst.map((r, i) => `
     <div class="rank-item">
       <span class="rank-num">${String(i + 1).padStart(2, '0')}</span>
-      <span class="rank-title" title="${r.title}">${r.title}</span>
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
       <div class="rank-right">
         <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:${(Number(r['read_count']) / viewMax * 100).toFixed(1)}%"></div></div>
         <span class="rank-val worst-val">${Number(r['read_count']).toLocaleString()}</span>
@@ -1201,7 +2073,7 @@ function buildBestRanking(rows) {
   document.getElementById('ranking-best-eta').innerHTML = etaBest.map((r, i) => `
     <div class="rank-item">
       <span class="rank-num ${medal(i)}">${String(i + 1).padStart(2, '0')}</span>
-      <span class="rank-title" title="${r.title}">${r.title}</span>
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
       <div class="rank-right">
         <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:${(r.eta / etaMax * 100).toFixed(1)}%"></div></div>
         <span class="rank-val best-val">${r.eta.toFixed(1)}%</span>
@@ -1215,7 +2087,7 @@ function buildBestRanking(rows) {
   document.getElementById('ranking-best-views').innerHTML = viewBest.map((r, i) => `
     <div class="rank-item">
       <span class="rank-num ${medal(i)}">${String(i + 1).padStart(2, '0')}</span>
-      <span class="rank-title" title="${r.title}">${r.title}</span>
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
       <div class="rank-right">
         <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:${(Number(r['read_count']) / viewMax * 100).toFixed(1)}%"></div></div>
         <span class="rank-val best-val">${Number(r['read_count']).toLocaleString()}</span>
@@ -1291,5 +2163,6 @@ async function init() {
 
 init();
 </script>
-</body>
-</html>
+
+
+</body></html>
