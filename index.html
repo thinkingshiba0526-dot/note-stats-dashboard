@@ -5,37 +5,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>note / stats</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:        #06080f;
-  --bg2:       #0b0e1a;
-  --surface:   #0f1221;
-  --surface2:  #141729;
-  --border:    rgba(255,255,255,0.07);
-  --border2:   rgba(255,255,255,0.12);
+  --bg:        #1f1a17;
+  --bg2:       #241e1a;
+  --surface:   #2a2320;
+  --surface2:  #332b26;
+  --border:    rgba(250,240,225,0.08);
+  --border2:   rgba(250,240,225,0.14);
 
-  --cyan:      #00e5ff;
-  --cyan-dim:  rgba(0,229,255,0.12);
-  --cyan-glow: rgba(0,229,255,0.25);
-  --pink:      #ff4d8d;
-  --pink-dim:  rgba(255,77,141,0.12);
-  --gold:      #ffc947;
-  --gold-dim:  rgba(255,201,71,0.12);
-  --violet:    #9d6fff;
-  --violet-dim:rgba(157,111,255,0.12);
-  --green:     #00e5a0;
-  --red:       #ff4d6a;
+  --cyan:      #8fa8b8;
+  --cyan-dim:  rgba(143,168,184,0.14);
+  --cyan-glow: rgba(143,168,184,0.28);
+  --pink:      #cf8a63;
+  --pink-dim:  rgba(207,138,99,0.14);
+  --gold:      #d9a066;
+  --gold-dim:  rgba(217,160,102,0.14);
+  --violet:    #c1483d;
+  --violet-dim:rgba(193,72,61,0.14);
+  --green:     #93a375;
+  --green-dim: rgba(147,163,117,0.16);
+  --red:       #c1483d;
 
-  --text:      #f0f4ff;
-  --text2:     #b0bcd8;
-  --text3:     #6b7599;
+  --text:      #f7f0e6;
+  --text2:     #c9b9a8;
+  --text3:     #8e7d6c;
 
-  --mono: 'JetBrains Mono', monospace;
-  --sans: 'Syne', sans-serif;
+  --mono: 'M PLUS Rounded 1c', sans-serif;
+  --sans: 'M PLUS Rounded 1c', sans-serif;
 
-  --r: 6px;
+  --r: 10px;
 }
+
+[data-theme="light"] {
+  --bg:        #faf5ec;
+  --bg2:       #f3ebdc;
+  --surface:   #ffffff;
+  --surface2:  #f6efe3;
+  --border:    rgba(70,52,40,0.09);
+  --border2:   rgba(70,52,40,0.16);
+
+  --cyan:      #6f8ea3;
+  --cyan-dim:  rgba(111,142,163,0.14);
+  --cyan-glow: rgba(111,142,163,0.25);
+  --pink:      #bf7248;
+  --pink-dim:  rgba(191,114,72,0.14);
+  --gold:      #b9803f;
+  --gold-dim:  rgba(185,128,63,0.14);
+  --violet:    #b8392f;
+  --violet-dim:rgba(184,57,47,0.14);
+  --green:     #748457;
+  --green-dim: rgba(116,132,87,0.16);
+  --red:       #b8392f;
+
+  --text:      #3a2e26;
+  --text2:     #6b5a4b;
+  --text3:     #988572;
+}
+
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -63,7 +91,7 @@ body::before {
 /* ─── HEADER ─── */
 header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(6,8,15,0.92);
+  background: var(--bg2);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   padding: 0 32px;
@@ -108,6 +136,23 @@ header {
   color: var(--text2);
   letter-spacing: 0.15em;
   text-transform: uppercase;
+}
+.theme-toggle-btn {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.theme-toggle-btn:hover {
+  background: var(--surface2);
+  color: var(--text);
+  border-color: var(--cyan);
 }
 
 /* ─── LAYOUT ─── */
@@ -424,9 +469,9 @@ header {
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
-.badge-hot  { background: rgba(255,77,106,0.15); color: #ff4d6a; border: 1px solid rgba(255,77,106,0.3); }
-.badge-grow { background: rgba(0,229,160,0.12); color: var(--green); border: 1px solid rgba(0,229,160,0.25); }
-.badge-idle { background: rgba(61,68,102,0.3); color: var(--text3); border: 1px solid var(--border); }
+.badge-hot  { background: var(--violet-dim); color: var(--red); border: 1px solid var(--violet-dim); }
+.badge-grow { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-dim); }
+.badge-idle { background: var(--border2); color: var(--text3); border: 1px solid var(--border); }
 
 .bar-cell-wrap {
   display: flex; align-items: center; gap: 8px;
@@ -635,6 +680,7 @@ header {
     <span class="logo-sub">stats</span>
   </div>
   <div class="header-right">
+    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" title="ダーク/ライト切り替え">🌙 ダーク</button>
     <div id="last-updated">—</div>
     <div class="header-badge">live</div>
   </div>
@@ -774,7 +820,7 @@ header {
           <span class="panel-title-dot" style="background:var(--red)"></span>
           改善候補 ワースト分析
         </div>
-        <span class="panel-badge" style="color:var(--red);border-color:rgba(255,77,106,0.2)">WORST 10</span>
+        <span class="panel-badge" style="color:var(--red);border-color:var(--violet-dim)">WORST 10</span>
       </div>
       <!-- ワースト -->
       <div class="worst-grid" style="margin-bottom:28px">
@@ -999,8 +1045,8 @@ function shibaSVG(stageId, size) {
      <ellipse cx="50" cy="50" rx="3.2" ry="2.6" fill="#2c1a0e"/>
      <path d="M50 52 q-5 5 -10 2 M50 52 q5 5 10 2" fill="none" stroke="#2c1a0e" stroke-width="1.8" stroke-linecap="round"/>
      <path d="M74 80 q18 -10 6 -26" fill="none" stroke="#b34a3c" stroke-width="8" stroke-linecap="round"/>
-     <path d="M28 62 q-8 4 -6 12" fill="none" stroke="#ffc947" stroke-width="4" stroke-linecap="round"/>
-     <g fill="#ffc947">
+     <path d="M28 62 q-8 4 -6 12" fill="none" stroke="#e0a752" stroke-width="4" stroke-linecap="round"/>
+     <g fill="#e0a752">
        <path d="M14 30 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 Z"/>
        <path d="M86 46 l1.6 4.8 4.8 1.6 -4.8 1.6 -1.6 4.8 -1.6 -4.8 -4.8 -1.6 4.8 -1.6 Z"/>
        <path d="M80 14 l1.4 4 4 1.4 -4 1.4 -1.4 4 -1.4 -4 -4 -1.4 4 -1.4 Z"/>
@@ -1029,11 +1075,25 @@ async function fetchCSV(name) {
   });
 }
 
+/* ─── テーマ連動ヘルパー ─── */
+function cssVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+function hexA(hex, alpha) {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.substring(0, 2), 16);
+  const g = parseInt(h.substring(2, 4), 16);
+  const b = parseInt(h.substring(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
 /* ─── Chart.js defaults ─── */
-const GRID_COLOR = 'rgba(255,255,255,0.05)';
-Chart.defaults.color = '#3d4466';
-Chart.defaults.font.family = "'JetBrains Mono', monospace";
-Chart.defaults.font.size = 11;
+function gridColor() { return cssVar('--border'); }
+function refreshChartDefaults() {
+  Chart.defaults.color = cssVar('--text3');
+  Chart.defaults.font.family = "'M PLUS Rounded 1c', sans-serif";
+  Chart.defaults.font.size = 11;
+}
 
 const baseOpts = () => ({
   responsive: true,
@@ -1042,30 +1102,30 @@ const baseOpts = () => ({
   plugins: {
     legend: {
       display: true,
-      labels: { boxWidth: 8, padding: 16, color: 'rgba(255,255,255,0.85)', usePointStyle: true } // 凡例のカラー指定
+      labels: { boxWidth: 8, padding: 16, color: cssVar('--text2'), usePointStyle: true } // 凡例のカラー指定
     },
     tooltip: {
-      backgroundColor: '#0f1221',
-      borderColor: 'rgba(255,255,255,0.1)',
+      backgroundColor: cssVar('--surface'),
+      borderColor: cssVar('--border2'),
       borderWidth: 1,
-      titleColor: '#e8ecf8',
-      bodyColor: '#8891b0',
+      titleColor: cssVar('--text'),
+      bodyColor: cssVar('--text2'),
       padding: 12,
       cornerRadius: 6
     }
   },
   scales: {
     x: {
-      grid: { color: GRID_COLOR },
+      grid: { color: gridColor() },
       ticks: {
         maxTicksLimit: 10,
-        color: 'rgba(255,255,255,0.85)'
+        color: cssVar('--text2')
       }
     },
     y: {
-      grid: { color: GRID_COLOR },
+      grid: { color: gridColor() },
       ticks: {
-        color: 'rgba(255,255,255,0.85)'
+        color: cssVar('--text2')
       }
     }
   }
@@ -1081,26 +1141,28 @@ function setDiff(id, val) {
 }
 
 /* ─── 日次推移 ─── */
+let dailyChartInstance = null;
 function buildDaily(rows) {
   const r = rows.slice(-60);
   const labels = r.map(d => d['日付'] ? d['日付'].slice(5) : '');
   const views = r.map(d => Number(d['ビュー合計']));
   const likes = r.map(d => Number(d['スキ合計']));
-  new Chart(document.getElementById('chart-daily'), {
+  if (dailyChartInstance) dailyChartInstance.destroy();
+  dailyChartInstance = new Chart(document.getElementById('chart-daily'), {
     type: 'bar',
     data: {
       labels,
       datasets: [
         {
           type: 'bar', label: 'スキ合計', data: likes,
-          backgroundColor: 'rgba(255,77,141,0.35)',
-          borderColor: 'rgba(255,77,141,0.8)',
-          borderWidth: 1, yAxisID: 'y1', borderRadius: 2
+          backgroundColor: hexA(cssVar('--pink'), 0.4),
+          borderColor: hexA(cssVar('--pink'), 0.85),
+          borderWidth: 1, yAxisID: 'y1', borderRadius: 4
         },
         {
           type: 'line', label: 'ビュー合計', data: views,
-          borderColor: '#00e5ff',
-          backgroundColor: 'rgba(0,229,255,0.04)',
+          borderColor: cssVar('--cyan'),
+          backgroundColor: hexA(cssVar('--cyan'), 0.08),
           fill: true, tension: 0.35,
           pointRadius: 0, pointHoverRadius: 4,
           borderWidth: 2, yAxisID: 'y'
@@ -1111,24 +1173,24 @@ function buildDaily(rows) {
       ...baseOpts(),
       scales: {
         x: {
-          grid: { color: GRID_COLOR },
+          grid: { color: gridColor() },
           ticks: {
             maxTicksLimit: 10,
-            color: 'rgba(255,255,255,0.85)' // X軸の文字色
+            color: cssVar('--text2') // X軸の文字色
           }
         },
         y: {
           position: 'left',
-          grid: { color: GRID_COLOR },
+          grid: { color: gridColor() },
           ticks: {
-            color: 'rgba(255,255,255,0.85)' // Y軸の文字色
+            color: cssVar('--text2') // Y軸の文字色
           }
         },
         y1: {
           position: 'right',
           grid: { display: false },
           ticks: {
-            color: 'rgba(255,255,255,0.85)' // Y1軸の文字色
+            color: cssVar('--text2') // Y1軸の文字色
           }
         }
       }
@@ -1159,6 +1221,7 @@ function buildRanking(containerId, rows, valueKey, barClass, valClass) {
 }
 
 /* ─── フォロワー ─── */
+let followersChartInstance = null;
 function buildFollowers(summary, followers) {
   const fRows = followers.filter(r => r['フォロワー数']);
   let labels, data;
@@ -1170,14 +1233,15 @@ function buildFollowers(summary, followers) {
     labels = s.map(r => r['日付'] ? r['日付'].slice(5) : '');
     data = s.map(r => Number(r['フォロワー数']));
   }
-  new Chart(document.getElementById('chart-followers'), {
+  if (followersChartInstance) followersChartInstance.destroy();
+  followersChartInstance = new Chart(document.getElementById('chart-followers'), {
     type: 'line',
     data: {
       labels,
       datasets: [{
         label: 'フォロワー数', data,
-        borderColor: '#9d6fff',
-        backgroundColor: 'rgba(157,111,255,0.06)',
+        borderColor: cssVar('--violet'),
+        backgroundColor: hexA(cssVar('--violet'), 0.1),
         fill: true, tension: 0.35,
         pointRadius: 0, pointHoverRadius: 4,
         borderWidth: 2
@@ -1188,19 +1252,21 @@ function buildFollowers(summary, followers) {
 }
 
 /* ─── 4象限 ─── */
+let quadChartInstance = null;
 function buildQuad(rows) {
   const data = rows.map(r => ({
     x: parseFloat(r['ビュー/記事']) || 0,
     y: parseFloat(r['スキ率(%)']) || 0,
     label: r['日付']
   }));
-  new Chart(document.getElementById('chart-quad'), {
+  if (quadChartInstance) quadChartInstance.destroy();
+  quadChartInstance = new Chart(document.getElementById('chart-quad'), {
     type: 'scatter',
     data: {
       datasets: [{
         label: '日次動態',
         data,
-        backgroundColor: 'rgba(157,111,255,0.5)',
+        backgroundColor: hexA(cssVar('--violet'), 0.55),
         pointRadius: 5,
         pointHoverRadius: 7
       }]
@@ -1209,26 +1275,26 @@ function buildQuad(rows) {
       ...baseOpts(),
       scales: {
         x: {
-          grid: { color: GRID_COLOR },
+          grid: { color: gridColor() },
           ticks: {
             maxTicksLimit: 10,
-            color: 'rgba(255,255,255,0.85)'
+            color: cssVar('--text2')
           },
           title: {
             display: true,
             text: 'Views / Article',
-            color: 'rgba(255,255,255,0.85)'
+            color: cssVar('--text2')
           }
         },
         y: {
-          grid: { color: GRID_COLOR },
+          grid: { color: gridColor() },
           ticks: {
-            color: 'rgba(255,255,255,0.85)'
+            color: cssVar('--text2')
           },
           title: {
             display: true,
             text: 'Like Rate (%)',
-            color: 'rgba(255,255,255,0.85)'
+            color: cssVar('--text2')
           }
         }
       }
@@ -1488,20 +1554,20 @@ function validateConfig() {
     document.getElementById('last-updated').textContent = '⚠️ CONFIG未設定';
     document.querySelector('.dashboard').innerHTML = `
       <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;padding:32px">
-        <div style="max-width:560px;border:1px solid rgba(255,201,71,0.3);border-radius:8px;padding:40px;background:rgba(255,201,71,0.05)">
-          <div style="font-size:22px;font-weight:700;color:#ffc947;margin-bottom:16px">⚙️ 設定が必要です</div>
-          <div style="color:#b0bcd8;line-height:1.9;font-size:14px">
-            このファイルを使うには、スクリプト冒頭の <code style="color:#00e5ff;background:rgba(0,229,255,0.1);padding:2px 6px;border-radius:3px">CONFIG</code> を編集してください。<br><br>
-            <strong style="color:#f0f4ff">① HTMLファイルをテキストエディタで開く</strong><br>
+        <div style="max-width:560px;border:1px solid var(--gold-dim);border-radius:8px;padding:40px;background:var(--gold-dim)">
+          <div style="font-size:22px;font-weight:700;color:var(--gold);margin-bottom:16px">⚙️ 設定が必要です</div>
+          <div style="color:var(--text2);line-height:1.9;font-size:14px">
+            このファイルを使うには、スクリプト冒頭の <code style="color:var(--cyan);background:var(--cyan-dim);padding:2px 6px;border-radius:3px">CONFIG</code> を編集してください。<br><br>
+            <strong style="color:var(--text)">① HTMLファイルをテキストエディタで開く</strong><br>
             （メモ帳 / VSCode など何でもOK）<br><br>
-            <strong style="color:#f0f4ff">② 以下の1行を書き換える</strong><br>
-            <div style="background:#0f1221;border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:14px;margin:12px 0;font-family:monospace;font-size:13px">
-              <span style="color:#6b7599">// 変更前</span><br>
-              <span style="color:#ff4d6a">repo: 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME'</span><br><br>
-              <span style="color:#6b7599">// 変更後（例）</span><br>
-              <span style="color:#00e5a0">repo: 'yamada-taro/note-stats-public'</span>
+            <strong style="color:var(--text)">② 以下の1行を書き換える</strong><br>
+            <div style="background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:14px;margin:12px 0;font-family:'M PLUS Rounded 1c',sans-serif;font-size:13px">
+              <span style="color:var(--text3)">// 変更前</span><br>
+              <span style="color:var(--red)">repo: 'YOUR_GITHUB_USERNAME/YOUR_REPO_NAME'</span><br><br>
+              <span style="color:var(--text3)">// 変更後（例）</span><br>
+              <span style="color:var(--green)">repo: 'yamada-taro/note-stats-public'</span>
             </div>
-            <strong style="color:#f0f4ff">③ ファイルを保存してブラウザで再度開く</strong>
+            <strong style="color:var(--text)">③ ファイルを保存してブラウザで再度開く</strong>
           </div>
         </div>
       </div>`;
@@ -1510,8 +1576,42 @@ function validateConfig() {
   return true;
 }
 
+/* ─── テーマ切り替え ─── */
+let cachedSummary = null;
+let cachedFollowers = null;
+
+function applyThemeButtonLabel() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.textContent = isLight ? '☀️ ライト' : '🌙 ダーク';
+}
+
+function toggleTheme() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const next = isLight ? 'dark' : 'light';
+  if (next === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+  try { localStorage.setItem('note-stats-theme', next); } catch (e) {}
+  applyThemeButtonLabel();
+  refreshChartDefaults();
+  if (cachedSummary) buildDaily(cachedSummary);
+  if (cachedSummary && cachedFollowers) buildFollowers(cachedSummary, cachedFollowers);
+  if (cachedSummary) buildQuad(cachedSummary);
+}
+
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem('note-stats-theme');
+    if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  } catch (e) {}
+})();
+
 /* ─── INIT ─── */
 async function init() {
+  applyThemeButtonLabel();
   if (!validateConfig()) return;
   try {
     const [summary, articles, followers, trend, assets] = await Promise.all([
@@ -1521,6 +1621,8 @@ async function init() {
       fetchCSV('trend_analysis'),
       fetchCSV('asset_articles')
     ]);
+    cachedSummary = summary;
+    cachedFollowers = followers;
 
     const latest = summary[summary.length - 1];
     document.getElementById('kpi-views').textContent    = Number(latest['ビュー合計']).toLocaleString();
@@ -1532,6 +1634,7 @@ async function init() {
     setDiff('kpi-views-diff', parseFloat(latest['ビュー前日比(%)']));
     setDiff('kpi-likes-diff', parseFloat(latest['スキ前日比(%)']));
 
+    refreshChartDefaults();
     build3KPI(summary);
     buildDaily(summary);
     buildGrowthDex(articles);
