@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>note / stats</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -26,7 +27,9 @@
   --violet-dim:rgba(193,72,61,0.14);
   --green:     #93a375;
   --green-dim: rgba(147,163,117,0.16);
+  --green-pop: #adc189;
   --red:       #c1483d;
+  --red-pop:   #e0685a;
 
   --text:      #f7f0e6;
   --text2:     #c9b9a8;
@@ -57,7 +60,9 @@
   --violet-dim:rgba(184,57,47,0.14);
   --green:     #748457;
   --green-dim: rgba(116,132,87,0.16);
+  --green-pop: #5e7541;
   --red:       #b8392f;
+  --red-pop:   #a52d23;
 
   --text:      #3a2e26;
   --text2:     #6b5a4b;
@@ -186,9 +191,11 @@ header {
 
 .kpi3-item { padding: 0 28px; }
 .kpi3-label {
-  font-size: 15px;
-  color: var(--text2);
-  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -218,9 +225,11 @@ header {
 
 .status-memo-wrap { padding: 0 28px; }
 .status-memo-label {
-  font-size: 18px;
-  color: var(--text2);
-  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -265,9 +274,11 @@ header {
 .kpi:hover { background: var(--surface); }
 
 .kpi-label {
-  font-size: 18px;
-  color: var(--text2);
-  letter-spacing: 0.12em;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 10px;
   display: flex; align-items: center; gap: 6px;
@@ -312,6 +323,7 @@ header {
   padding: 28px 32px;
   border-bottom: 1px solid var(--border);
   border-right: 1px solid var(--border);
+  border-top: 3px solid transparent;
   position: relative;
   animation: fadeUp 0.5s ease both;
 }
@@ -323,6 +335,11 @@ header {
 .panel.third {
   grid-column: span 1;
 }
+.panel.accent-cyan   { border-top-color: var(--cyan); }
+.panel.accent-pink   { border-top-color: var(--pink); }
+.panel.accent-violet { border-top-color: var(--violet); }
+.panel.accent-gold   { border-top-color: var(--gold); }
+.panel.accent-red    { border-top-color: var(--red); }
 
 .panel-header {
   display: flex;
@@ -331,9 +348,11 @@ header {
   margin-bottom: 22px;
 }
 .panel-title {
-  font-size: 18px;
-  color: var(--text2);
-  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   display: flex; align-items: center; gap: 8px;
 }
@@ -424,7 +443,7 @@ header {
 .like-bar  { background: var(--pink); }
 .like-val  { color: var(--pink); }
 .worst-bar { background: var(--red); }
-.worst-val { color: var(--red); }
+.worst-val { color: var(--red-pop); font-weight: 800; }
 
 /* ─── TABLE ─── */
 .table-wrap {
@@ -459,6 +478,12 @@ header {
   font-size: 14px;
   transition: background 0.15s;
 }
+.data-table tbody tr:nth-child(even) td {
+  background: var(--bg2);
+}
+.data-table tbody tr:hover td {
+  background: var(--surface2);
+}
 
 .status-badge {
   display: inline-block;
@@ -469,8 +494,8 @@ header {
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
-.badge-hot  { background: var(--violet-dim); color: var(--red); border: 1px solid var(--violet-dim); }
-.badge-grow { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-dim); }
+.badge-hot  { background: var(--violet-dim); color: var(--red-pop); border: 1px solid var(--violet-dim); }
+.badge-grow { background: var(--green-dim); color: var(--green-pop); border: 1px solid var(--green-dim); }
 .badge-idle { background: var(--border2); color: var(--text3); border: 1px solid var(--border); }
 
 .bar-cell-wrap {
@@ -509,7 +534,7 @@ header {
 }
 .growth-stage-card:hover {
   background: var(--surface2);
-  border-color: var(--border2);
+  border-color: var(--cyan);
   transform: translateY(-2px);
 }
 .growth-stage-card .gs-icon-wrap {
@@ -596,9 +621,11 @@ header {
   gap: 32px;
 }
 .worst-section-title {
-  font-size: 15px;
-  color: var(--text3);
-  letter-spacing: 0.2em;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text2);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 12px;
   display: flex; align-items: center; gap: 6px;
@@ -609,9 +636,11 @@ header {
   background: var(--red);
 }
 .best-section-title {
-  font-size: 15px;
-  color: var(--text3);
-  letter-spacing: 0.2em;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text2);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 12px;
   display: flex; align-items: center; gap: 6px;
@@ -622,7 +651,7 @@ header {
   background: var(--green);
 }
 .best-bar { background: var(--green); }
-.best-val { color: var(--green); }
+.best-val { color: var(--green-pop); font-weight: 800; }
 
 /* ─── LOADING ─── */
 .loading {
@@ -754,11 +783,7 @@ header {
   <div class="grid">
 
     <!-- 赤柴成長図鑑 -->
-    <div class="panel full">
-      <div class="panel-header">
-        <div class="panel-title">
-          <span class="panel-title-dot" style="background:var(--gold)"></span>
-          赤柴成長図鑑｜スキで育つ記事たち
+    <div class="panel full accent-gold">
         </div>
         <span class="panel-badge" style="color:var(--gold);border-color:var(--gold-dim)">GROWTH</span>
       </div>
@@ -766,7 +791,7 @@ header {
     </div>
 
     <!-- 日次推移 -->
-    <div class="panel">
+    <div class="panel accent-cyan">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--cyan)"></span>
@@ -778,7 +803,7 @@ header {
     </div>
 
     <!-- ビューランキング -->
-    <div class="panel">
+    <div class="panel accent-cyan">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--cyan)"></span>
@@ -790,7 +815,7 @@ header {
     </div>
 
     <!-- フォロワー推移 -->
-    <div class="panel">
+    <div class="panel accent-violet">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--violet)"></span>
@@ -802,7 +827,7 @@ header {
     </div>
 
     <!-- スキランキング -->
-    <div class="panel">
+    <div class="panel accent-pink">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--pink)"></span>
@@ -814,7 +839,7 @@ header {
     </div>
 
     <!-- ワースト10 -->
-    <div class="panel full">
+    <div class="panel full accent-red">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--red)"></span>
@@ -853,10 +878,10 @@ header {
     </div>
 
     <!-- 4象限 -->
-    <div class="panel full">
+    <div class="panel full accent-cyan">
       <div class="panel-header">
         <div class="panel-title">
-          <span class="panel-title-dot" style="background:var(--violet)"></span>
+          <span class="panel-title-dot" style="background:var(--cyan)"></span>
           4象限マップ｜PV × スキ率
         </div>
         <span class="panel-badge">SCATTER</span>
@@ -865,7 +890,7 @@ header {
     </div>
 
     <!-- 資産記事 -->
-    <div class="panel full">
+    <div class="panel full accent-gold">
       <div class="panel-header">
         <div class="panel-title">
           <span class="panel-title-dot" style="background:var(--gold)"></span>
@@ -892,10 +917,10 @@ header {
     </div>
 
     <!-- トレンド詳細 -->
-    <div class="panel full">
+    <div class="panel full accent-cyan">
       <div class="panel-header">
         <div class="panel-title">
-          <span class="panel-title-dot" style="background:var(--pink)"></span>
+          <span class="panel-title-dot" style="background:var(--cyan)"></span>
           トレンド動態｜7日間詳細
         </div>
         <span class="panel-badge">← SCROLL →</span>
@@ -1259,6 +1284,13 @@ function buildQuad(rows) {
     y: parseFloat(r['スキ率(%)']) || 0,
     label: r['日付']
   }));
+  const avgX = data.length ? data.reduce((s, d) => s + d.x, 0) / data.length : 0;
+  const avgY = data.length ? data.reduce((s, d) => s + d.y, 0) / data.length : 0;
+  const pointColors = data.map(d => {
+    if (d.x >= avgX && d.y >= avgY) return hexA(cssVar('--green-pop'), 0.75);
+    if (d.x < avgX && d.y < avgY) return hexA(cssVar('--red-pop'), 0.7);
+    return hexA(cssVar('--cyan'), 0.6);
+  });
   if (quadChartInstance) quadChartInstance.destroy();
   quadChartInstance = new Chart(document.getElementById('chart-quad'), {
     type: 'scatter',
@@ -1266,13 +1298,32 @@ function buildQuad(rows) {
       datasets: [{
         label: '日次動態',
         data,
-        backgroundColor: hexA(cssVar('--violet'), 0.55),
+        backgroundColor: pointColors,
         pointRadius: 5,
         pointHoverRadius: 7
       }]
     },
     options: {
       ...baseOpts(),
+      plugins: {
+        ...baseOpts().plugins,
+        annotation: {
+          annotations: {
+            avgXLine: {
+              type: 'line', xMin: avgX, xMax: avgX,
+              borderColor: hexA(cssVar('--gold'), 0.6),
+              borderWidth: 1.5, borderDash: [6, 4],
+              label: { display: true, content: '平均PV/記事', position: 'start', color: cssVar('--gold'), font: { size: 10 }, backgroundColor: 'transparent' }
+            },
+            avgYLine: {
+              type: 'line', yMin: avgY, yMax: avgY,
+              borderColor: hexA(cssVar('--gold'), 0.6),
+              borderWidth: 1.5, borderDash: [6, 4],
+              label: { display: true, content: '平均スキ率', position: 'start', color: cssVar('--gold'), font: { size: 10 }, backgroundColor: 'transparent' }
+            }
+          }
+        }
+      },
       scales: {
         x: {
           grid: { color: gridColor() },
