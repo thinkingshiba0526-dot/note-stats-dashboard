@@ -451,7 +451,7 @@ header {
 /* ─── 赤柴成長図鑑 ─── */
 .growth-dex {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 12px;
 }
 .growth-stage-card {
@@ -642,18 +642,6 @@ header {
 
 <div class="dashboard">
 
-  <!-- 赤柴成長図鑑 -->
-  <div class="panel full" style="border-bottom:1px solid var(--border);border-right:none">
-    <div class="panel-header">
-      <div class="panel-title">
-        <span class="panel-title-dot" style="background:var(--gold)"></span>
-        赤柴成長図鑑｜スキで育つ記事たち
-      </div>
-      <span class="panel-badge" style="color:var(--gold);border-color:var(--gold-dim)">GROWTH</span>
-    </div>
-    <div class="growth-dex" id="growth-dex"><div class="loading">育て中</div></div>
-  </div>
-
   <!-- ═══ STATUS BAND (3KPI + memo) ═══ -->
   <div class="status-band">
     <div class="kpi3-item">
@@ -718,6 +706,18 @@ header {
 
   <!-- ═══ PANELS ═══ -->
   <div class="grid">
+
+    <!-- 赤柴成長図鑑 -->
+    <div class="panel full">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-title-dot" style="background:var(--gold)"></span>
+          赤柴成長図鑑｜スキで育つ記事たち
+        </div>
+        <span class="panel-badge" style="color:var(--gold);border-color:var(--gold-dim)">GROWTH</span>
+      </div>
+      <div class="growth-dex" id="growth-dex"><div class="loading">育て中</div></div>
+    </div>
 
     <!-- 日次推移 -->
     <div class="panel">
