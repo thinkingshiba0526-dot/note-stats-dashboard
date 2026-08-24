@@ -506,6 +506,40 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.growth-stage-card .gs-article-list {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  max-height: 220px;
+  overflow-y: auto;
+  text-align: left;
+}
+.growth-stage-card .gs-article-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 5px 4px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.growth-stage-card .gs-article-row:hover {
+  background: var(--surface2);
+}
+.growth-stage-card .gs-article-title {
+  color: var(--text2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+.growth-stage-card .gs-article-likes {
+  color: var(--pink);
+  font-weight: 700;
+  font-size: 10px;
+  flex-shrink: 0;
+}
 @media (max-width: 900px) {
   .growth-dex { grid-template-columns: repeat(2, 1fr); }
 }
@@ -608,6 +642,18 @@ header {
 
 <div class="dashboard">
 
+  <!-- 赤柴成長図鑑 -->
+  <div class="panel full" style="border-bottom:1px solid var(--border);border-right:none">
+    <div class="panel-header">
+      <div class="panel-title">
+        <span class="panel-title-dot" style="background:var(--gold)"></span>
+        赤柴成長図鑑｜スキで育つ記事たち
+      </div>
+      <span class="panel-badge" style="color:var(--gold);border-color:var(--gold-dim)">GROWTH</span>
+    </div>
+    <div class="growth-dex" id="growth-dex"><div class="loading">育て中</div></div>
+  </div>
+
   <!-- ═══ STATUS BAND (3KPI + memo) ═══ -->
   <div class="status-band">
     <div class="kpi3-item">
@@ -672,18 +718,6 @@ header {
 
   <!-- ═══ PANELS ═══ -->
   <div class="grid">
-
-    <!-- 赤柴成長図鑑 -->
-    <div class="panel full">
-      <div class="panel-header">
-        <div class="panel-title">
-          <span class="panel-title-dot" style="background:var(--gold)"></span>
-          赤柴成長図鑑｜スキで育つ記事たち
-        </div>
-        <span class="panel-badge" style="color:var(--gold);border-color:var(--gold-dim)">GROWTH</span>
-      </div>
-      <div class="growth-dex" id="growth-dex"><div class="loading">育て中</div></div>
-    </div>
 
     <!-- 日次推移 -->
     <div class="panel">
@@ -1426,11 +1460,16 @@ function buildGrowthDex(rows) {
     const inStage = all.filter(r => {
       const n = Number(r.like_count) || 0;
       return n >= stage.min && n <= stage.max;
-    });
-    const top = inStage.slice().sort((a, b) => Number(b.like_count) - Number(a.like_count))[0];
-    const exampleHTML = top
-      ? `<div class="gs-example" title="${top.title}">${titleLinkHTML(top.key, top.title)}</div>`
+    }).sort((a, b) => Number(b.like_count) - Number(a.like_count));
+
+    const listHTML = inStage.length
+      ? `<div class="gs-article-list">${inStage.map(r => `
+          <div class="gs-article-row">
+            <span class="gs-article-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
+            <span class="gs-article-likes">${Number(r.like_count).toLocaleString()}</span>
+          </div>`).join('')}</div>`
       : `<div class="gs-example" style="color:var(--text3)">まだいません</div>`;
+
     return `
       <div class="growth-stage-card">
         <div class="gs-icon-wrap">${shibaSVG(stage.id, 56)}</div>
@@ -1438,7 +1477,7 @@ function buildGrowthDex(rows) {
         <div class="gs-range">${stage.range} スキ</div>
         <div class="gs-count">${inStage.length}</div>
         <div class="gs-count-label">記事</div>
-        ${exampleHTML}
+        ${listHTML}
       </div>`;
   }).join('');
 }
