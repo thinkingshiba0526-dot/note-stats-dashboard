@@ -72,16 +72,14 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  overflow-x: hidden;
+}
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--mono);
   min-height: 100vh;
-  overflow-x: hidden;
-}
-body {
-  background: var(--bg);
-  ...
   overflow-x: hidden;
 }
   
@@ -396,6 +394,7 @@ header {
   background: var(--surface);
   transition: all 0.15s ease;
   cursor: default;
+  min-width: 0;
 }
 .rank-item:hover {
   background: var(--surface2);
@@ -420,6 +419,7 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color 0.15s;
+  min-width: 0;
 }
 .rank-item:hover .rank-title { color: var(--text); }
 
