@@ -1249,12 +1249,13 @@ let followersChartInstance = null;
 function buildFollowers(summary, followers) {
   const updateDates = getUpdateDates(summary);
   const fRows = followers.filter(r => r['フォロワー数']);
-  let dateRows;
-  if (fRows.length > 1) {
-    dateRows = fRows;
-  } else {
-    dateRows = summary.filter(r => r['フォロワー数']);
-  }
+  const rawRows = fRows.length > 1 ? fRows : summary.filter(r => r['フォロワー数']);
+
+  // 同じ日付は「その日最後の値」だけを残して1点にまとめる
+  const lastRowByDate = new Map();
+  rawRows.forEach(r => lastRowByDate.set(r['日付'], r));
+  const dateRows = Array.from(lastRowByDate.values());
+
   const labels = dateRows.map(r => r['日付'] ? r['日付'].slice(5) : '');
   const data = dateRows.map(r => Number(r['フォロワー数']));
 
