@@ -1056,14 +1056,21 @@ async function fetchCSV(name) {
   });
 }
  function getUpdateDates(summary) {
+  // 日付ごとに、その日の最後の記事数だけを残す
+  const lastByDate = new Map();
+  summary.forEach(row => {
+    lastByDate.set(row['日付'], Number(row['記事数']) || 0);
+  });
+  const uniqueDates = Array.from(lastByDate.keys());
+
   const dates = new Set();
-  for (let i = 1; i < summary.length; i++) {
-    const prev = Number(summary[i - 1]['記事数']) || 0;
-    const curr = Number(summary[i]['記事数']) || 0;
-    if (curr > prev) dates.add(summary[i]['日付']);
+  for (let i = 1; i < uniqueDates.length; i++) {
+    const prev = lastByDate.get(uniqueDates[i - 1]);
+    const curr = lastByDate.get(uniqueDates[i]);
+    if (curr > prev) dates.add(uniqueDates[i]);
   }
   return dates;
-} 
+}
 
 /* ─── テーマ連動ヘルパー ─── */
 function cssVar(name) {
