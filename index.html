@@ -1055,6 +1055,15 @@ async function fetchCSV(name) {
     return obj;
   });
 }
+ function getUpdateDates(summary) {
+  const dates = new Set();
+  for (let i = 1; i < summary.length; i++) {
+    const prev = Number(summary[i - 1]['記事数']) || 0;
+    const curr = Number(summary[i]['記事数']) || 0;
+    if (curr > prev) dates.add(summary[i]['日付']);
+  }
+  return dates;
+} 
 
 /* ─── テーマ連動ヘルパー ─── */
 function cssVar(name) {
@@ -1124,10 +1133,25 @@ function setDiff(id, val) {
 /* ─── 日次推移 ─── */
 let dailyChartInstance = null;
 function buildDaily(rows) {
+  const updateDates = getUpdateDates(rows);
   const r = rows.slice(-60);
   const labels = r.map(d => d['日付'] ? d['日付'].slice(5) : '');
   const views = r.map(d => Number(d['ビュー合計']));
   const likes = r.map(d => Number(d['スキ合計']));
+
+  const updateAnnotations = {};
+  r.forEach((d, i) => {
+    if (updateDates.has(d['日付'])) {
+      updateAnnotations[`update-${i}`] = {
+        type: 'line',
+        xMin: i,
+        xMax: i,
+        borderColor: hexA(cssVar('--gold'), 0.6),
+        borderWidth: 1.5,
+        borderDash: [4, 4]
+      };
+    }
+  });
 
   function niceRange(arr) {
     const min = Math.min(...arr);
@@ -1163,31 +1187,28 @@ function buildDaily(rows) {
     },
     options: {
       ...baseOpts(),
+      plugins: {
+        ...baseOpts().plugins,
+        annotation: { annotations: updateAnnotations }
+      },
       scales: {
         x: {
           grid: { color: gridColor() },
-          ticks: {
-            maxTicksLimit: 10,
-            color: cssVar('--text2') // X軸の文字色
-          }
+          ticks: { maxTicksLimit: 10, color: cssVar('--text2') }
         },
         y: {
           position: 'left',
           min: viewRange.min,
           max: viewRange.max,
           grid: { color: gridColor() },
-          ticks: {
-            color: cssVar('--text2') // Y軸の文字色
-          }
+          ticks: { color: cssVar('--text2') }
         },
         y1: {
           position: 'right',
           min: likeRange.min,
           max: likeRange.max,
           grid: { display: false },
-          ticks: {
-            color: cssVar('--text2') // Y1軸の文字色
-          }
+          ticks: { color: cssVar('--text2') }
         }
       }
     }
@@ -1219,16 +1240,31 @@ function buildRanking(containerId, rows, valueKey, barClass, valClass) {
 /* ─── フォロワー ─── */
 let followersChartInstance = null;
 function buildFollowers(summary, followers) {
+  const updateDates = getUpdateDates(summary);
   const fRows = followers.filter(r => r['フォロワー数']);
-  let labels, data;
+  let dateRows;
   if (fRows.length > 1) {
-    labels = fRows.map(r => r['日付'] ? r['日付'].slice(5) : '');
-    data = fRows.map(r => Number(r['フォロワー数']));
+    dateRows = fRows;
   } else {
-    const s = summary.filter(r => r['フォロワー数']);
-    labels = s.map(r => r['日付'] ? r['日付'].slice(5) : '');
-    data = s.map(r => Number(r['フォロワー数']));
+    dateRows = summary.filter(r => r['フォロワー数']);
   }
+  const labels = dateRows.map(r => r['日付'] ? r['日付'].slice(5) : '');
+  const data = dateRows.map(r => Number(r['フォロワー数']));
+
+  const updateAnnotations = {};
+  dateRows.forEach((d, i) => {
+    if (updateDates.has(d['日付'])) {
+      updateAnnotations[`update-${i}`] = {
+        type: 'line',
+        xMin: i,
+        xMax: i,
+        borderColor: hexA(cssVar('--gold'), 0.6),
+        borderWidth: 1.5,
+        borderDash: [4, 4]
+      };
+    }
+  });
+
   if (followersChartInstance) followersChartInstance.destroy();
   followersChartInstance = new Chart(document.getElementById('chart-followers'), {
     type: 'line',
@@ -1243,7 +1279,13 @@ function buildFollowers(summary, followers) {
         borderWidth: 2
       }]
     },
-    options: baseOpts()
+    options: {
+      ...baseOpts(),
+      plugins: {
+        ...baseOpts().plugins,
+        annotation: { annotations: updateAnnotations }
+      }
+    }
   });
 }
 
