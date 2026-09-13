@@ -182,7 +182,7 @@ header {
   border-bottom: 1px solid var(--border);
   padding: 28px 32px;
   display: grid;
-  grid-template-columns: 1fr 1px 1fr 1px 1fr 2px 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr 2px 1.3fr;
   align-items: center;
   gap: 0;
   animation: fadeUp 0.6s ease both;
@@ -762,6 +762,16 @@ header {
       </div>
       <div class="kpi3-sub">スキ ÷ PV × 100</div>
     </div>
+    <div class="band-divider"></div>
+
+    <div class="kpi3-item">
+      <div class="kpi3-label">θ 閲覧率</div>
+      <div class="kpi3-row">
+        <span class="kpi3-val" id="k3-viewrate">—</span>
+        <span class="kpi3-arrow" id="k3-viewrate-arrow"></span>
+      </div>
+      <div class="kpi3-sub">PV ÷ 表示数 × 100</div>
+    </div>
     <div class="band-divider thick"></div>
 
     <div class="status-memo-wrap">
@@ -892,6 +902,27 @@ header {
         <div>
           <div class="best-section-title">View数 ベスト（最も読まれた記事）</div>
           <div class="ranking-list" id="ranking-best-views"><div class="loading">loading</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 閲覧率 分析 -->
+    <div class="panel full accent-cyan">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-title-dot" style="background:var(--cyan)"></span>
+          閲覧率 分析｜表示からの離脱状況
+        </div>
+        <span class="panel-badge" style="color:var(--cyan);border-color:var(--cyan-dim)">VIEW RATE</span>
+      </div>
+      <div class="worst-grid">
+        <div>
+          <div class="worst-section-title">閲覧率 ワースト（見られているのにクリックされていない）</div>
+          <div class="ranking-list" id="ranking-worst-viewrate"><div class="loading">loading</div></div>
+        </div>
+        <div>
+          <div class="best-section-title">閲覧率 ベスト（タイトル・サムネの引きが強い）</div>
+          <div class="ranking-list" id="ranking-best-viewrate"><div class="loading">loading</div></div>
         </div>
       </div>
     </div>
@@ -1054,6 +1085,17 @@ async function fetchCSV(name) {
     headers.forEach((h, i) => obj[h] = (vals[i] || '').trim());
     return obj;
   });
+}
+
+/* funnel-tracker由来のファイルは、まだ同期されていない・一時的に取得失敗のことがあるので、
+   失敗しても空配列を返して他のパネルの描画を止めないようにする */
+async function fetchCSVSafe(name) {
+  try {
+    return await fetchCSV(name);
+  } catch (e) {
+    console.warn('[funnel] ' + name + ' が取得できませんでした（同期前の可能性があります）:', e.message);
+    return [];
+  }
 }
  function getUpdateDates(summary) {
   // 日付ごとに、その日の最後の記事数だけを残す
@@ -1495,6 +1537,31 @@ function build3KPI(summary) {
   document.getElementById('status-memo-text').textContent = memos[key] || '状態を解析中...';
 }
 
+/* ─── θ 閲覧率 KPI（funnel-tracker由来）─── */
+function updateViewRateKPI(rows) {
+  if (!rows || !rows.length) return;
+  const sorted = [...rows].sort((a, b) => a.snapshot_date > b.snapshot_date ? 1 : -1);
+  const today = sorted[sorted.length - 1];
+  const imp = Number(today.impression) || 0;
+  const pv  = Number(today.page_view) || 0;
+  const rate = imp > 0 ? (pv / imp * 100) : 0;
+  document.getElementById('k3-viewrate').textContent = rate.toFixed(2) + '%';
+
+  if (sorted.length >= 2) {
+    const y = sorted[sorted.length - 2];
+    const impY = Number(y.impression) || 0;
+    const pvY  = Number(y.page_view) || 0;
+    const rateY = impY > 0 ? (pvY / impY * 100) : 0;
+    const d = rate - rateY;
+    let a = { s: '→', c: 'flat' };
+    if (rateY > 0 && d > rateY * 0.01) a = { s: '↑', c: 'up' };
+    else if (rateY > 0 && d < -rateY * 0.01) a = { s: '↓', c: 'down' };
+    const el = document.getElementById('k3-viewrate-arrow');
+    el.textContent = a.s;
+    el.className = `kpi3-arrow ${a.c}`;
+  }
+}
+
 /* ─── ワースト10 ─── */
 function buildWorstRanking(rows) {
   if (!rows.length) return;
@@ -1583,6 +1650,59 @@ function buildBestRanking(rows) {
       <div class="rank-right">
         <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:${(Number(r['read_count']) / viewMax * 100).toFixed(1)}%"></div></div>
         <span class="rank-val best-val">${Number(r['read_count']).toLocaleString()}</span>
+      </div>
+    </div>`).join('');
+}
+
+/* ─── 閲覧率ランキング（funnel-tracker由来、全期間累積）─── */
+function buildViewRateRanking(rows) {
+  const worstEl = document.getElementById('ranking-worst-viewrate');
+  const bestEl  = document.getElementById('ranking-best-viewrate');
+  if (!rows || !rows.length) {
+    const msg = '<div style="color:var(--text3);padding:12px;font-size:12px">データ未取得（funnel-trackerの同期待ちです）</div>';
+    worstEl.innerHTML = msg;
+    bestEl.innerHTML = msg;
+    return;
+  }
+
+  const latest = rows.reduce((a, b) => a.snapshot_date > b.snapshot_date ? a : b).snapshot_date;
+  const MIN_IMPRESSION = 50; // 表示数が少なすぎる記事は率がぶれるので除外
+  const all = rows
+    .filter(r => r.snapshot_date === latest && Number(r.impression) >= MIN_IMPRESSION && !EXCLUDED_TITLES.includes(r.title))
+    .map(r => ({ ...r, rate: Number(r.page_view) / Number(r.impression) * 100 }));
+
+  if (!all.length) {
+    const msg = '<div style="color:var(--text3);padding:12px;font-size:12px">対象記事なし（表示数' + MIN_IMPRESSION + '以上の記事がまだありません）</div>';
+    worstEl.innerHTML = msg;
+    bestEl.innerHTML = msg;
+    return;
+  }
+
+  const medal = i => i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+
+  const worst = [...all].sort((a, b) => a.rate - b.rate).slice(0, 10);
+  const worstMax = Math.max(...worst.map(r => r.rate), 1);
+  worstEl.innerHTML = worst.map((r, i) => `
+    <div class="rank-item">
+      <span class="rank-num">${String(i + 1).padStart(2, '0')}</span>
+      ${growthBadgeHTML(r.like)}
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill worst-bar" style="width:${(r.rate / worstMax * 100).toFixed(1)}%"></div></div>
+        <span class="rank-val worst-val">${r.rate.toFixed(1)}%</span>
+      </div>
+    </div>`).join('');
+
+  const best = [...all].sort((a, b) => b.rate - a.rate).slice(0, 10);
+  const bestMax = Math.max(...best.map(r => r.rate), 1);
+  bestEl.innerHTML = best.map((r, i) => `
+    <div class="rank-item">
+      <span class="rank-num ${medal(i)}">${String(i + 1).padStart(2, '0')}</span>
+      ${growthBadgeHTML(r.like)}
+      <span class="rank-title" title="${r.title}">${titleLinkHTML(r.key, r.title)}</span>
+      <div class="rank-right">
+        <div class="rank-bar"><div class="rank-bar-fill best-bar" style="width:${(r.rate / bestMax * 100).toFixed(1)}%"></div></div>
+        <span class="rank-val best-val">${r.rate.toFixed(1)}%</span>
       </div>
     </div>`).join('');
 }
@@ -1686,12 +1806,14 @@ async function init() {
   applyThemeButtonLabel();
   if (!validateConfig()) return;
   try {
-    const [summary, articles, followers, trend, assets] = await Promise.all([
+    const [summary, articles, followers, trend, assets, funnelSummary, funnelArticles] = await Promise.all([
       fetchCSV('daily_summary'),
       fetchCSV('articles'),
       fetchCSV('followers'),
       fetchCSV('trend_analysis'),
-      fetchCSV('asset_articles')
+      fetchCSV('asset_articles'),
+      fetchCSVSafe('funnel_cumulative_summary'),
+      fetchCSVSafe('funnel_articles_cumulative')
     ]);
     cachedSummary = summary;
     cachedFollowers = followers;
@@ -1718,6 +1840,8 @@ async function init() {
     buildQuad(summary);
     buildAssetTable(assets);
     buildTrendDetailed(trend);
+    updateViewRateKPI(funnelSummary);
+    buildViewRateRanking(funnelArticles);
 
   } catch (e) {
     console.error(e);
